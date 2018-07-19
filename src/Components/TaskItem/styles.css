@@ -1,0 +1,34 @@
+.task-item {
+  border-bottom: 1px solid #eef0f7;
+  min-height: 75px;
+  transition: .3s ease;
+  cursor: pointer;
+  padding: 20px 15px;
+  font-weight: 300;
+}
+
+.task-item--priority-1 {
+  border-left: 2px solid #5ec866;
+}
+
+.task-item--priority-2 {
+  border-left: 2px solid #ff9866;
+}
+
+.task-item--priority-3 {
+  border-left: 2px solid #d91a22;
+}
+
+.task-item:hover {
+  background-color: #fff;
+}
+
+.task-item__title {
+  font-weight: 300;
+}
+
+.task-item__title span {
+  font-size: 24px;
+  font-weight: bold;
+  color: #e6e6e6;
+}

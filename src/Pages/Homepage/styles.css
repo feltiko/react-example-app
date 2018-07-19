@@ -1,0 +1,19 @@
+.sidebar,
+.content {
+  background-color: #f5f6fa;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.sidebar {
+  border-right: 1px solid #eef0f7;
+  display: flex;
+}
+
+.content {
+  background-color: #fff;
+}
+
+.layout {
+  height: calc(100vh - 52px);
+}

@@ -3,6 +3,16 @@
   "rules": {
     "react/jsx-one-expression-per-line": 0,
     "implicit-arrow-linebreak": 0,
-    "react/jsx-filename-extension": 0
+    "react/jsx-filename-extension": 0,
+    "space-before-function-paren": 0
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "globals": {
+    "document": true,
+    "foo": true,
+    "window": true
   }
 }
