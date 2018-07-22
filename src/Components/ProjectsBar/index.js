@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Popover } from 'antd';
 import { withRouter } from 'react-router';
+import AddProjectPopover from '../AddProjectPopover';
 import './styles.css';
 
 function ProjectsBar({ projects }) {
@@ -11,7 +13,9 @@ function ProjectsBar({ projects }) {
           {value.name.slice(0, 1)}
         </div>
       ))}
-      <div className="projects__item projects__item--add">+</div>
+      <Popover placement="right" content={<AddProjectPopover />} title="Add new project" trigger="click">
+        <div className="projects__item projects__item--add">+</div>
+      </Popover>
     </ul>
   );
 }
