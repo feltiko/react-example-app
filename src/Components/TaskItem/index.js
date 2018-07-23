@@ -16,12 +16,12 @@ class TaskItem extends Component {
     } = this.props;
 
     return (
-      <div className={`task-item--priority-${priority} task-item`}>
+      <li className={`task-item--priority-${priority} task-item`}>
         <h4 className="task-item__title">
           <span>#{id}</span> / {title}
         </h4>
         <span className="task-item__date">{date}</span>
-      </div>
+      </li>
     );
   }
 }

@@ -1,35 +1,51 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Row, Col } from 'antd';
+
+import { fetchProjects } from '../../Actions/Projects';
 import ProjectsBar from '../../Components/ProjectsBar';
 import Tasks from '../../Components/Tasks';
 import './styles.css';
 
-function Homepage() {
-  return (
-    <Row className="layout">
-      <Col className="sidebar" span={6}>
-        <ProjectsBar projects={[
-          { id: 1, name: 'test' },
-          { id: 2, name: 'test' },
-          { id: 3, name: 'test' },
-        ]}
-        />
-        <Tasks tasks={[
-          {
-            id: 1, title: 'test', priority: 1, date: Date.now(),
-          },
-          {
-            id: 2, title: 'baldej', priority: 2, date: Date.now(),
-          },
-          {
-            id: 3, title: 'Title test', priority: 3, date: Date.now(),
-          },
-        ]}
-        />
-      </Col>
-      <Col className="content" span={18}>col-18 col-push-6</Col>
-    </Row>
-  );
+class Homepage extends Component {
+  componentDidMount () {
+    const { dispatch } = this.props;
+
+    fetchProjects(dispatch);
+  }
+
+  render () {
+    const { projects: { data, selected } } = this.props;
+
+    const isLoadedNotEmpty = data && data.length;
+
+    const projectsBar = isLoadedNotEmpty
+      ? <ProjectsBar projects={data} /> : null;
+
+    const selectedProjectTasks = isLoadedNotEmpty
+      ? data.filter(val => val.id === selected)[0].tasks : null;
+
+    const projectsTasks = isLoadedNotEmpty
+      ? <Tasks tasks={selectedProjectTasks} /> : null;
+
+    return (
+      <Row className="layout">
+        <Col className="sidebar" span={6}>
+          {projectsBar}
+          {projectsTasks}
+        </Col>
+        <Col className="content" span={18}>col-18 col-push-6</Col>
+      </Row>
+    );
+  }
 }
 
-export default Homepage;
+Homepage.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  projects: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+};
+
+const mapStateToProps = state => ({ projects: state.projects });
+
+export default connect(mapStateToProps)(Homepage);

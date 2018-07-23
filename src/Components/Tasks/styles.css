@@ -2,4 +2,13 @@
   margin: 0;
   padding: 0;
   width: 100%;
+  list-style: none;
+}
+
+.task-item__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px;
+  border-bottom: 1px solid #eef0f7;
 }

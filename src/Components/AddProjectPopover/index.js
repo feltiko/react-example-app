@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Button, Input } from 'antd';
+import { connect } from 'react-redux';
+import { addProject } from '../../Actions/Projects';
 import './styles.css';
 
 class AddProjectPopover extends Component {
@@ -16,8 +19,10 @@ class AddProjectPopover extends Component {
   onNameInputChange = e => this.setState({ name: e.target.value });
 
   onSubmit = () => {
-    // const { name } = this.state;
-    // TOOD: add new project
+    const { dispatch } = this.props;
+    const { name } = this.state;
+
+    addProject(dispatch, name);
   }
 
   render() {
@@ -34,4 +39,8 @@ class AddProjectPopover extends Component {
   }
 }
 
-export default AddProjectPopover;
+AddProjectPopover.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+};
+
+export default connect()(AddProjectPopover);
