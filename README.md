@@ -1,16 +1,16 @@
 # Just a simple task manager on React/Redux (+navigation)
 
 ### Currently done
--- Create new projects 
--- Simple layout 
-   
+ - Create new projects
+ - Simple layout
+
 ### TODO
--- Simple auth with fake data
--- Edit/remove/add tasks
--- Routing
--- Store somewhere data (maybe in `localStorage`)
+ - Simple auth with fake data
+ - Edit/remove/add tasks
+ - Routing
+ - Store somewhere data (maybe in `localStorage`)
 
 ##### Objects structure
--- Project: `[id(AUTOINCREMENT)|name]`
--- Task: `[id(AUTOINCREMENT)|name|priority|description|createdDate|dueDate]`
+ - Project: `[id(AUTOINCREMENT)|name]`
+ - Task: `[id(AUTOINCREMENT)|name|priority|description|createdDate|dueDate]`
 
