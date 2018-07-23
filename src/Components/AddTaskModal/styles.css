@@ -1,0 +1,11 @@
+.add-task__form {
+  padding: 20px;
+}
+
+.add-task__input {
+  margin-bottom: 15px;
+}
+
+.add-task__input--select {
+  width: 100%;
+}

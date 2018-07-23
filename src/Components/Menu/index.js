@@ -5,6 +5,11 @@ import MenuItem from '../MenuItem';
 import './styles.css';
 
 class Menu extends Component {
+  static propTypes = {
+    history: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+    routes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  };
+
   go (event) {
     const { history } = this.props;
 
@@ -23,10 +28,5 @@ class Menu extends Component {
     );
   }
 }
-
-Menu.propTypes = {
-  history: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  routes: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
 
 export default withRouter(Menu);

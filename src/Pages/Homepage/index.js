@@ -9,6 +9,11 @@ import Tasks from '../../Components/Tasks';
 import './styles.css';
 
 class Homepage extends Component {
+  static propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    projects: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  };
+
   componentDidMount () {
     const { dispatch } = this.props;
 
@@ -40,11 +45,6 @@ class Homepage extends Component {
     );
   }
 }
-
-Homepage.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  projects: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-};
 
 const mapStateToProps = state => ({ projects: state.projects });
 

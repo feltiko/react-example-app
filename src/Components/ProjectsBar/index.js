@@ -8,6 +8,11 @@ import { setSelectedProjectId } from '../../Actions/Projects';
 import './styles.css';
 
 class ProjectsBar extends Component {
+  static propTypes = {
+    projects: PropTypes.arrayOf(PropTypes.object).isRequired,
+    dispatch: PropTypes.func.isRequired,
+  };
+
   constructor (props) {
     super(props);
 
@@ -39,11 +44,6 @@ class ProjectsBar extends Component {
     );
   }
 }
-
-ProjectsBar.propTypes = {
-  projects: PropTypes.arrayOf(PropTypes.object).isRequired,
-  dispatch: PropTypes.func.isRequired,
-};
 
 const mapStateToProps = state => ({ projectsRedux: state.projects });
 

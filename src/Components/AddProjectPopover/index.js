@@ -6,6 +6,10 @@ import { addProject } from '../../Actions/Projects';
 import './styles.css';
 
 class AddProjectPopover extends Component {
+  static propTypes = {
+    dispatch: PropTypes.func.isRequired,
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -38,9 +42,5 @@ class AddProjectPopover extends Component {
     );
   }
 }
-
-AddProjectPopover.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-};
 
 export default connect()(AddProjectPopover);

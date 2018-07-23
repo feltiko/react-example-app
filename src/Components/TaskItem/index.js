@@ -4,6 +4,14 @@ import { withRouter } from 'react-router';
 import './styles.css';
 
 class TaskItem extends Component {
+  static propTypes = {
+    history: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    date: PropTypes.number.isRequired,
+    priority: PropTypes.number.isRequired,
+  };
+
   go(id) {
     const { history } = this.props;
 
@@ -25,13 +33,5 @@ class TaskItem extends Component {
     );
   }
 }
-
-TaskItem.propTypes = {
-  history: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  date: PropTypes.number.isRequired,
-  priority: PropTypes.number.isRequired,
-};
 
 export default withRouter(TaskItem);

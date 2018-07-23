@@ -4,10 +4,16 @@ import { withRouter } from 'react-router';
 import './styles.css';
 
 class MenuItem extends Component {
-  go (event) {
+  static propTypes = {
+    history: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+    url: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+  };
+
+  go = (url) => {
     const { history } = this.props;
 
-    history.push(`/${event}`);
+    history.push(`${url}`);
   }
 
   render() {
@@ -15,18 +21,16 @@ class MenuItem extends Component {
 
     return (
       <li className="menu-item">
-        <a className="menu-item__link" href={url}>
+        <button
+          type="button"
+          className="menu-item__link"
+          onClick={() => this.go(url)}
+        >
           {name}
-        </a>
+        </button>
       </li>
     );
   }
 }
-
-MenuItem.propTypes = {
-  history: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  url: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-};
 
 export default withRouter(MenuItem);
