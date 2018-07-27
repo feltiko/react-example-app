@@ -1,4 +1,4 @@
-# Just a simple task manager on React/Redux (+navigation)
+# A simple task manager written via React/Redux (+navigation)
 
 ### Currently done
  - Create new projects
